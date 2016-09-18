@@ -27,11 +27,10 @@ function loadDogFoods (){
           for (var x = 0; x < dogFoodJsonArray[i].types[j].volumes.length; x++) {
             dogFoodsOutput += dogFoodJsonArray[i].types[j].volumes[x].size;
             dogFoodsOutput += " ";
-            dogFoodsOutput += dogFoodJsonArray[i].types[j].volumes[x].price;
+            dogFoodsOutput += dogFoodJsonArray[i].types[j].volumes[x].price + ";";
             dogFoodsOutput += " ";
-          dogFoodsOutput += "</div>";
           }
-          dogFoodsOutput += "<br>";
+          dogFoodsOutput += "</div>";
           dogFoodsOutput += "</div>";
         }
       }
@@ -63,22 +62,27 @@ function loadCatFoods (){
     for (var j = 0; j < catFoodJsonArray[i].types.length; j++) {
     catFoodsOutput += "<div class='row'>";
       catFoodsOutput += "<div class='brand_name col-md-2'>";
-        catFoodsOutput += catFoodsOutput[i].name;
+        catFoodsOutput += catFoodJsonArray[i].name;
       catFoodsOutput += "</div>";
       catFoodsOutput += "<div class='types col-md-2'>";
-        catFoodsOutput += catFoodsOutput[i].types[j].type;
+      console.log ("yo yo", catFoodJsonArray[i])
+        catFoodsOutput += catFoodJsonArray[i].types[j].type;
       catFoodsOutput += "</div>"
         catFoodsOutput += "<div class='volumes col-md-8'>";
-        for (var i = 0; i < catFoodJsonArray[i].types[j].volumes.length; i++) {
-          catFoodsOutput += catFoodsOutput[i].types[j].volumes[x].size;
+        for (var x = 0; x < catFoodJsonArray[i].types[j].volumes.length; x++) {
+          catFoodsOutput += catFoodJsonArray[i].types[j].volumes[x].size;
           catFoodsOutput += " ";
-          catFoodsOutput += catFoodsOutput[i].types[j].volumes[x].price;
+          catFoodsOutput += catFoodJsonArray[i].types[j].volumes[x].price;
+            if (x.price === 0) {
+              catFoodsOutput += catFoodsOutput.price[x] + ";"
+            }
           catFoodsOutput += " ";
-          catFoodsOutput += "</div>";
         }
+        catFoodsOutput += "</div>";
         catFoodsOutput += "</div>";
   }
 }
+
   console.log(catFoodsOutput);
   catFoodDiv.innerHTML = catFoodsOutput;
 
