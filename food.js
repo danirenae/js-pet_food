@@ -1,7 +1,7 @@
 var catFoodDiv = document.getElementById("cat_food");
 var dogFoodDiv = document.getElementById("dog_food");
 
-
+//function to load dog foods json to DOM
 function loadDogFoods (){
 
   console.log("this.responseText:", this.responseText);
@@ -49,6 +49,7 @@ myRequest.send();
 
 
 
+//function to load cat foods json file to DOM
 
 function loadCatFoods (){
 
@@ -72,9 +73,9 @@ function loadCatFoods (){
         for (var x = 0; x < catFoodJsonArray[i].types[j].volumes.length; x++) {
           catFoodsOutput += catFoodJsonArray[i].types[j].volumes[x].size;
           catFoodsOutput += " ";
-          catFoodsOutput += catFoodJsonArray[i].types[j].volumes[x].price;
+          catFoodsOutput += catFoodJsonArray[i].types[j].volumes[x].price + ";";
             if (x.price === 0) {
-              catFoodsOutput += catFoodsOutput.price[x] + ";"
+              catFoodsOutput += catFoodsOutput.price[x];
             }
           catFoodsOutput += " ";
         }
